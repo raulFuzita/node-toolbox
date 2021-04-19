@@ -16,8 +16,9 @@ app.use((req, res, next) => {
 })
 
 app.use('/index', require('./routes/home/homeRoute'))
-app.use((req, res) => res.status(404).render('404'))
 app.get('/', (req, res) => res.redirect('/index'))
+
+app.use((req, res) => res.status(404).render('404'))
 
 
 const port = process.env.PORT || 5000
